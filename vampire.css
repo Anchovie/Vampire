@@ -122,6 +122,19 @@ input[type='text'] {
   align-items: center;
 }
 
+
+@media only screen and (max-width: 1620px) {
+	.info-section, .attributes, .skills {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.attributes-section, .skills-section{
+		width: auto!important;
+		border-right: 0!important;
+	}
+}
+
 .info-section .info-row {
   flex: 1 1 30%;
   width: 33%;
