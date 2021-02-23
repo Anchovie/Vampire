@@ -1,0 +1,445 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+  background-color: #2D132C;
+}
+
+.page-wrapper {
+  padding: 4rem;
+  width: 60%;
+  margin: auto;
+  background-color: #FFFFFF;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 40px;
+    padding-bottom: 4rem;
+}
+
+h2 {
+  color: #C72C41;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 20px;
+}
+
+h3 {
+  color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-size: 18px;
+}
+
+label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+input[type='checkbox']{
+  width: 12px !important;
+  height: 12px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance:none;
+  outline: 2px solid black;
+  box-shadow: none;
+}
+
+input[type='checkbox']:checked{
+  background-color: black;
+  transition: all ease 0.2s;
+}
+
+input[type='checkbox'][name='hunger']{
+  width: 12px !important;
+  height: 12px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance:none;
+  outline: 2px solid red;
+  box-shadow: none;
+}
+
+input[type='checkbox'][name='hunger']:checked{
+  background-color: red;
+  transition: all ease 0.2s;
+}
+
+input[type='text'] {
+	border: 0px;
+	border-bottom: 1px solid black;
+	font-family: sans-serif;
+}
+
+.info-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.info-section .info-row {
+  flex: 1 1 30%;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  padding:1rem;
+}
+
+.info-section .info-row label {
+  padding-top: 0.5rem;
+}
+
+.divider {
+  text-align: center;
+  padding: 2px;
+  border-bottom: 2px solid #C72C41;
+  width: 100%;
+}
+
+.attributes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.attributes-section {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1 1 30%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid black;
+  margin: 1rem 0 1rem 0;
+}
+
+.attributes-section:last-child {
+  border-right: none;
+}
+
+.attributes-section h3 {
+  padding-bottom: 0.75rem;
+}
+
+.attributes .attributes-section .attribute-wrapper {
+  display: inline-block;
+  padding: 0 1.5rem 0.5rem 1.5rem;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+
+}
+
+.attribute-wrapper label {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 18px;
+  padding-right: 4rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skills-section {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 30%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+}
+
+.skills .skills-section .skill-wrapper {
+  display: inline-block;
+  padding: 0 1.5rem 0.5rem 1.5rem;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+}
+
+.skills .skills-section .skill-wrapper input[type='text'] {
+  width:50px;
+}
+
+.skill-wrapper label {
+  font-size: 16px;
+  display: block;
+  padding-right: 5rem;
+  text-align: left;
+}
+
+.trackers {
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: space-between;
+	align-items: center;
+	margin: auto;
+}
+
+.trackers span {
+	display: inline-block;
+	width: 10px;
+}
+
+.trackers h3 {
+	color: red;
+}
+
+.trackers .tracker-section {
+	flex: 1 1 30%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+	display: inline-block;
+	align-self: flex-end;
+}
+
+.trackers .tracker-section .tracker-wrapper {
+	display: inline-block;
+	padding: 0 1.5rem 0.5rem 1.5rem;
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+}
+
+.disciplines {
+  display: flex;
+	flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.discipline-section {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 30%;
+  width: 100%;
+  align-items: center;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+	border: 1px solid black;
+}
+
+.discipline-wrapper {
+	display: inline-block;
+	padding: 0 1.5rem 0.5rem 1.5rem;
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+}
+
+.discipline-skill-wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.skill-wrap {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 0.25rem;
+}
+
+.discipline-skill-wrapper label{
+	font-size: 18px;
+	margin-right: auto;
+	align-self: flex-start;
+
+}
+
+.discipline-skill-wrapper input{
+	width: 90%;
+	align-self: flex-end;
+}
+
+.bottom-section {
+	display: flex;
+	justify-content: space-around;
+	padding: 1rem 2rem;
+}
+
+.resonance-wrapper {
+	color: red;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.hunger-wrapper {
+	display: inline-block;
+  padding: 0 1.5rem 0.5rem 1.5rem;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+	color: red;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.dice-form {
+	width: 80%;
+	margin-top: 3rem;
+	margin: auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+.dice-area {
+	width: 80%;
+	margin-top: 3rem;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.dice {
+	flex: 0 0 16%;
+	max-width: 5rem;
+	height: 5rem;
+	background-color: white;
+	margin: 0.5rem;
+	background-size: 5rem;
+	background-repeat: no-repeat;
+}
+
+.dice.rolling {
+	-webkit-animation:spin 0.25s linear infinite;
+	-moz-animation:spin 0.25s linear infinite;
+	animation:spin 0.25s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.dice span {
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	position: relative;
+	height: 2rem;
+	width: 2rem;
+	top: calc(50% - 1rem);
+	left: calc(50% - 0.25rem);
+}
+
+.dice.black {
+	background-image: url("assets/d10black.png");
+}
+
+.dice.red {
+	background-image: url("assets/d10red.png");
+}
+
+.dice-result {
+	width: 60%;
+	padding-top: 3rem;
+	margin: auto;
+	text-align: center;
+}
+
+.sidebar {
+	position: fixed;
+	z-index: 10;
+	right: 0;
+	top: 100px;
+	width: 30px;
+	height: 60%;
+	background-color: black;
+	opacity: 50%;
+	transition: all 0.5s ease;
+}
+
+.sidebar:hover {
+	width: 300px;
+	opacity: 95%;
+}
+
+.chat-wrapper {
+	opacity: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 90%;
+	top: 1rem;
+	margin: auto;
+	height: 70%;
+	background-color: white;
+}
+
+.chat-wrapper textarea {
+	width: 100%;
+	height: 90%;
+}
+
+.chat-wrapper .message-input {
+	width: 100%;
+	height: 10%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.message-input input {
+
+}
+.message-input button {
+
+}

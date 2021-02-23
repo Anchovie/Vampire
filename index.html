@@ -1,0 +1,498 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VampireV5</title>
+  <meta name="description" content="Vampire character sheet">
+  <meta name="author" content="Hermes">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vampire.css">
+
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js"
+    integrity="sha512-oFOCo2/3DtjrJG4N27BjSLQWoiBv171sK6a+JiWjp/7agxC2nCUP358AqzxkBUb5jX8g6CYLPdSKQTbC0weCwA=="
+    crossorigin="anonymous"></script> -->
+    <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
+  <script src="vampire.js"></script>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <h1> Vampire <br>The Masquerade </h1>
+  <form>
+    <div class="info">
+      <div class="info-section">
+        <div class="info-row">
+          <label for="name">Name: </label>
+          <input type="text" id="name" name="name">
+          <label for="player">Player: </label>
+          <input type="text" id="player" name="player">
+          <label for="chronicle">Chronicle: </label>
+          <input type="text" id="chronicle" name="chronicle">
+        </div>
+        <div class="info-row">
+          <label for="concept">Concept: </label>
+          <input type="text" id="concept" name="concept">
+          <label for="ambition">Ambition: </label>
+          <input type="text" id="ambition" name="ambition">
+          <label for="predator">Predator: </label>
+          <input type="text" id="predator" name="predator">
+        </div>
+        <div class="info-row">
+          <label for="sire">Sire: </label>
+          <input type="text" id="sire" name="sire">
+          <label for="clan">Clan: </label>
+          <input type="text" id="clan" name="clan">
+          <label for="generation">Generation: </label>
+          <input type="text" id="generation" name="generation">
+        </div>
+      </div>
+    </div>
+    <h2 class="divider">ATTRIBUTES</h2>
+    <div class="attributes">
+      <div class="attributes-section">
+        <h3> Physical </h3>
+        <div class="attribute-wrapper">
+          <label for="strength">Strength</label>
+          <input type="checkbox" id="strength-1" name="strength">
+          <input type="checkbox" id="strength-2" name="strength">
+          <input type="checkbox" id="strength-3" name="strength">
+          <input type="checkbox" id="strength-4" name="strength">
+          <input type="checkbox" id="strength-5" name="strength">
+        </div>
+
+        <div class="attribute-wrapper">
+          <label for="dexterity">Dexterity</label>
+          <input type="checkbox" id="dexterity-1" name="dexterity">
+          <input type="checkbox" id="dexterity-2" name="dexterity">
+          <input type="checkbox" id="dexterity-3" name="dexterity">
+          <input type="checkbox" id="dexterity-4" name="dexterity">
+          <input type="checkbox" id="dexterity-5" name="dexterity">
+        </div>
+
+        <div class="attribute-wrapper">
+          <label for="stamina">Stamina</label>
+          <input type="checkbox" id="stamina-1" name="stamina">
+          <input type="checkbox" id="stamina-2" name="stamina">
+          <input type="checkbox" id="stamina-3" name="stamina">
+          <input type="checkbox" id="stamina-4" name="stamina">
+          <input type="checkbox" id="stamina-5" name="stamina">
+        </div>
+      </div>
+
+      <div class="attributes-section">
+        <h3> Social </h3>
+        <div class="attribute-wrapper">
+          <label for="charisma">Charisma</label>
+          <input type="checkbox" id="charisma-1" name="charisma">
+          <input type="checkbox" id="charisma-2" name="charisma">
+          <input type="checkbox" id="charisma-3" name="charisma">
+          <input type="checkbox" id="charisma-4" name="charisma">
+          <input type="checkbox" id="charisma-5" name="charisma">
+        </div>
+
+        <div class="attribute-wrapper">
+          <label for="manipulation">Manipulation</label>
+          <input type="checkbox" id="manipulation-1" name="manipulation">
+          <input type="checkbox" id="manipulation-2" name="manipulation">
+          <input type="checkbox" id="manipulation-3" name="manipulation">
+          <input type="checkbox" id="manipulation-4" name="manipulation">
+          <input type="checkbox" id="manipulation-5" name="manipulation">
+        </div>
+
+        <div class="attribute-wrapper">
+          <label for="composure">Composure</label>
+          <input type="checkbox" id="composure-1" name="composure">
+          <input type="checkbox" id="composure-2" name="composure">
+          <input type="checkbox" id="composure-3" name="composure">
+          <input type="checkbox" id="composure-4" name="composure">
+          <input type="checkbox" id="composure-5" name="composure">
+        </div>
+      </div>
+
+      <div class="attributes-section">
+        <h3> Mental </h3>
+        <div class="attribute-wrapper">
+          <label for="intelligence">Intelligence</label>
+          <input type="checkbox" id="intelligence-1" name="intelligence">
+          <input type="checkbox" id="intelligence-2" name="intelligence">
+          <input type="checkbox" id="intelligence-3" name="intelligence">
+          <input type="checkbox" id="intelligence-4" name="intelligence">
+          <input type="checkbox" id="intelligence-5" name="intelligence">
+        </div>
+
+        <div class="attribute-wrapper">
+          <label for="wits">Wits</label>
+          <input type="checkbox" id="wits-1" name="wits">
+          <input type="checkbox" id="wits-2" name="wits">
+          <input type="checkbox" id="wits-3" name="wits">
+          <input type="checkbox" id="wits-4" name="wits">
+          <input type="checkbox" id="wits-5" name="wits">
+        </div>
+
+        <div class="attribute-wrapper">
+          <label for="resolve">Resolve</label>
+          <input type="checkbox" id="resolve-1" name="resolve">
+          <input type="checkbox" id="resolve-2" name="resolve">
+          <input type="checkbox" id="resolve-3" name="resolve">
+          <input type="checkbox" id="resolve-4" name="resolve">
+          <input type="checkbox" id="resolve-5" name="resolve">
+        </div>
+      </div>
+    </div>
+
+    <h2 class="divider">SKILLS</h2>
+    <div class="skills">
+      <div class="skills-section skill-physical">
+      </div>
+      <div class="skills-section skill-social">
+      </div>
+      <div class="skills-section skill-mental">
+      </div>
+
+      <div class="trackers">
+
+        <div class="tracker-section">
+          <h3> Health </h3>
+          </br>
+          <div class="tracker-wrapper">
+            <input type="checkbox" id="health-1" name="health">
+            <input type="checkbox" id="health-2" name="health">
+            <input type="checkbox" id="health-3" name="health">
+            <input type="checkbox" id="health-4" name="health">
+            <input type="checkbox" id="health-5" name="health">
+            <span class="tracker-span" name="health"></span>
+            <input type="checkbox" id="health-6" name="health">
+            <input type="checkbox" id="health-7" name="health">
+            <input type="checkbox" id="health-8" name="health">
+            <input type="checkbox" id="health-9" name="health">
+            <input type="checkbox" id="health-10" name="health">
+          </div>
+        </div>
+
+        <div class="tracker-section">
+          <h3> Willpower </h3>
+          </br>
+          <div class="tracker-wrapper">
+            <input type="checkbox" id="willpower-1" name="willpower">
+            <input type="checkbox" id="willpower-2" name="willpower">
+            <input type="checkbox" id="willpower-3" name="willpower">
+            <input type="checkbox" id="willpower-4" name="willpower">
+            <input type="checkbox" id="willpower-5" name="willpower">
+            <span class="tracker-span" name="willpower"></span>
+            <input type="checkbox" id="willpower-6" name="willpower">
+            <input type="checkbox" id="willpower-7" name="willpower">
+            <input type="checkbox" id="willpower-8" name="willpower">
+            <input type="checkbox" id="willpower-9" name="willpower">
+            <input type="checkbox" id="willpower-10" name="willpower">
+          </div>
+        </div>
+
+        <div class="tracker-section">
+          <h3> Humanity </h3>
+          </br>
+          <div class="tracker-wrapper">
+            <input type="checkbox" id="humanity-1" name="humanity">
+            <input type="checkbox" id="humanity-2" name="humanity">
+            <input type="checkbox" id="humanity-3" name="humanity">
+            <input type="checkbox" id="humanity-4" name="humanity">
+            <input type="checkbox" id="humanity-5" name="humanity">
+            <span class="tracker-span" name="humanity"></span>
+            <input type="checkbox" id="humanity-6" name="humanity">
+            <input type="checkbox" id="humanity-7" name="humanity">
+            <input type="checkbox" id="humanity-8" name="humanity">
+            <input type="checkbox" id="humanity-9" name="humanity">
+            <input type="checkbox" id="humanity-10" name="humanity">
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="divider">DISCLIPINES</h2>
+
+    <div class="disciplines">
+      <div class="discipline-section">
+        <div class="discipline-wrapper">
+          <input type="text" class="discipline-1 discipline-name">
+          <input type="checkbox" id="discipline1-1">
+          <input type="checkbox" id="discipline1-2">
+          <input type="checkbox" id="discipline1-3">
+          <input type="checkbox" id="discipline1-4">
+          <input type="checkbox" id="discipline1-5">
+        </div>
+        <div class="discipline-skill-wrapper">
+          <div class="skill-wrap">
+            <label for="discipline-skill1-1">1.</label>
+            <input type="text" class="discipline-skill1-1" name="discipline-skill1-1">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill1-2">2.</label>
+            <input type="text" class="discipline-skill1-2" name="discipline-skill1-2">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill1-3">3.</label>
+            <input type="text" class="discipline-skill1-3" name="discipline-skill1-3">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill1-4">4.</label>
+            <input type="text" class="discipline-skill1-4" name="discipline-skill1-4">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill1-5">5.</label>
+            <input type="text" class="discipline-skill1-5" name="discipline-skill1-5">
+          </div>
+        </div>
+      </div>
+
+      <div class="discipline-section">
+        <div class="discipline-wrapper">
+          <input type="text" class="discipline-2 discipline-name">
+          <input type="checkbox" id="discipline2-1">
+          <input type="checkbox" id="discipline2-2">
+          <input type="checkbox" id="discipline2-3">
+          <input type="checkbox" id="discipline2-4">
+          <input type="checkbox" id="discipline2-5">
+        </div>
+        <div class="discipline-skill-wrapper">
+          <div class="skill-wrap">
+            <label for="discipline-skill2-1">1.</label>
+            <input type="text" class="discipline-skill2-1" name="discipline-skill2-1">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill2-2">2.</label>
+            <input type="text" class="discipline-skill2-2" name="discipline-skill2-2">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill2-3">3.</label>
+            <input type="text" class="discipline-skill2-3" name="discipline-skill2-3">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill2-4">4.</label>
+            <input type="text" class="discipline-skill2-4" name="discipline-skill2-4">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill2-5">5.</label>
+            <input type="text" class="discipline-skill2-5" name="discipline-skill2-5">
+          </div>
+        </div>
+      </div>
+
+      <div class="discipline-section">
+        <div class="discipline-wrapper">
+          <input type="text" class="discipline-3 discipline-name">
+          <input type="checkbox" id="discipline3-1">
+          <input type="checkbox" id="discipline3-2">
+          <input type="checkbox" id="discipline3-3">
+          <input type="checkbox" id="discipline3-4">
+          <input type="checkbox" id="discipline3-5">
+        </div>
+        <div class="discipline-skill-wrapper">
+          <div class="skill-wrap">
+            <label for="discipline-skill3-1">1.</label>
+            <input type="text" class="discipline-skill3-1" name="discipline-skill3-1">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill3-2">2.</label>
+            <input type="text" class="discipline-skill3-2" name="discipline-skill3-2">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill3-3">3.</label>
+            <input type="text" class="discipline-skill3-3" name="discipline-skill3-3">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill3-4">4.</label>
+            <input type="text" class="discipline-skill3-4" name="discipline-skill3-4">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill3-5">5.</label>
+            <input type="text" class="discipline-skill3-5" name="discipline-skill3-5">
+          </div>
+        </div>
+      </div>
+
+      <div class="discipline-section">
+        <div class="discipline-wrapper">
+          <input type="text" class="discipline-4 discipline-name">
+          <input type="checkbox" id="discipline4-1">
+          <input type="checkbox" id="discipline4-2">
+          <input type="checkbox" id="discipline4-3">
+          <input type="checkbox" id="discipline4-4">
+          <input type="checkbox" id="discipline4-5">
+        </div>
+        <div class="discipline-skill-wrapper">
+          <div class="skill-wrap">
+            <label for="discipline-skill4-1">1.</label>
+            <input type="text" class="discipline-skill4-1" name="discipline-skill4-1">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill4-2">2.</label>
+            <input type="text" class="discipline-skill4-2" name="discipline-skill4-2">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill4-3">4.</label>
+            <input type="text" class="discipline-skill4-3" name="discipline-skill4-3">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill4-4">4.</label>
+            <input type="text" class="discipline-skill4-4" name="discipline-skill4-4">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill4-5">5.</label>
+            <input type="text" class="discipline-skill4-5" name="discipline-skill4-5">
+          </div>
+        </div>
+      </div>
+
+      <div class="discipline-section">
+        <div class="discipline-wrapper">
+          <input type="text" class="discipline-5 discipline-name">
+          <input type="checkbox" id="discipline5-1">
+          <input type="checkbox" id="discipline5-2">
+          <input type="checkbox" id="discipline5-3">
+          <input type="checkbox" id="discipline5-4">
+          <input type="checkbox" id="discipline5-5">
+        </div>
+        <div class="discipline-skill-wrapper">
+          <div class="skill-wrap">
+            <label for="discipline-skill5-1">1.</label>
+            <input type="text" class="discipline-skill5-1" name="discipline-skill5-1">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill5-2">2.</label>
+            <input type="text" class="discipline-skill5-2" name="discipline-skill5-2">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill5-3">5.</label>
+            <input type="text" class="discipline-skill5-3" name="discipline-skill5-3">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill5-4">5.</label>
+            <input type="text" class="discipline-skill5-4" name="discipline-skill5-4">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill5-5">5.</label>
+            <input type="text" class="discipline-skill5-5" name="discipline-skill5-5">
+          </div>
+        </div>
+      </div>
+
+      <div class="discipline-section">
+        <div class="discipline-wrapper">
+          <input type="text" class="discipline-6 discipline-name">
+          <input type="checkbox" id="discipline6-1">
+          <input type="checkbox" id="discipline6-2">
+          <input type="checkbox" id="discipline6-3">
+          <input type="checkbox" id="discipline6-4">
+          <input type="checkbox" id="discipline6-5">
+        </div>
+        <div class="discipline-skill-wrapper">
+          <div class="skill-wrap">
+            <label for="discipline-skill6-1">1.</label>
+            <input type="text" class="discipline-skill6-1" name="discipline-skill6-1">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill6-2">2.</label>
+            <input type="text" class="discipline-skill6-2" name="discipline-skill6-2">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill6-3">6.</label>
+            <input type="text" class="discipline-skill6-3" name="discipline-skill6-3">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill6-4">6.</label>
+            <input type="text" class="discipline-skill6-4" name="discipline-skill6-4">
+          </div>
+          <div class="skill-wrap">
+            <label for="discipline-skill6-5">5.</label>
+            <input type="text" class="discipline-skill6-5" name="discipline-skill6-5">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-section">
+
+      <div class="resonance-wrapper">
+        <label for="resonance">Resonance</label>
+        <input type="text" name="resonance" id="resonance">
+      </div>
+
+      <div class=hunger-wrapper>
+        <label for="hunger">Hunger</label>
+        <input type="checkbox" id="hunger-1" name="hunger">
+        <input type="checkbox" id="hunger-2" name="hunger">
+        <input type="checkbox" id="hunger-3" name="hunger">
+        <input type="checkbox" id="hunger-4" name="hunger">
+        <input type="checkbox" id="hunger-5" name="hunger">
+      </div>
+    </div>
+  </form>
+
+  <div class="dice-form">
+    <label for="dicepool"> Use static Dicepool: </label>
+    <input type="text" name="dicepool" class="dicepool">
+    <button class="roll" id="roll"> Roll </button>
+
+    OR </br>
+    <label for="roll1">Select attributes/skills to use</label>
+
+    <select name="roll1" id="roll1">
+      <option value="-">None</option>
+    </select>
+    +
+    <select name="roll2" id="roll2">
+      <option value="-">None</option>
+    </select>
+    +
+    <select name="roll3" id="roll3">
+      <option value="-">None</option>
+    </select>
+    <button class="roll" id="rollSkills"> Roll </button>
+    </br>
+  </div>
+
+  <div class="dice-area">
+    <div class="dice" id=dice1><span id="dice1-span"></span></div>
+    <div class="dice" id=dice2><span id="dice2-span"></span></div>
+    <div class="dice" id=dice3><span id="dice3-span"></span></div>
+    <div class="dice" id=dice4><span id="dice4-span"></span></div>
+    <div class="dice" id=dice5><span id="dice5-span"></span></div>
+    <div class="dice" id=dice6><span id="dice6-span"></span></div>
+    <div class="dice" id=dice7><span id="dice7-span"></span></div>
+    <div class="dice" id=dice8><span id="dice8-span"></span></div>
+    <div class="dice" id=dice9><span id="dice9-span"></span></div>
+    <div class="dice" id=dice10><span id="dice10-span"></span></div>
+    <div class="dice" id=dice11><span id="dice11-span"></span></div>
+    <div class="dice" id=dice12><span id="dice12-span"></span></div>
+    <div class="dice" id=dice13><span id="dice13-span"></span></div>
+    <div class="dice" id=dice14><span id="dice14-span"></span></div>
+    <div class="dice" id=dice15><span id="dice15-span"></span></div>
+    <div class="dice" id=dice16><span id="dice16-span"></span></div>
+    <div class="dice" id=dice17><span id="dice17-span"></span></div>
+    <div class="dice" id=dice18><span id="dice18-span"></span></div>
+  </div>
+  <div class="dice-result">
+    <h2> </h2>
+  </div>
+  <button id = "save"> Save Data </button>
+  <button id = "load"> Load Data </button>
+
+</div>
+
+<div class="sidebar">
+  <div class="chat-wrapper">
+    <textarea id=chat> </textarea>
+    <div class="message-input">
+      <input type="text" id="chat-write">
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
