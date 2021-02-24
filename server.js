@@ -29,16 +29,40 @@ const io = require('socket.io')(http);
 const port = process.env.PORT || 3001;
 const JSONdb = require('simple-json-db');
 const db = new JSONdb('db\\database.json');
+var connections = [];
+var users = [];
 
 
 io.on('connection', socket => {
   console.log('A new user has joined the chat');
   console.log("ID = " + socket.id);
+  connections.push(socket.id);
+  console.log("Current connections: ");
+  console.log(connections);
 
   socket.emit('message', 'You have successfully joined the chat');
 
   socket.on('message', (msg) => {
     io.emit('message', msg);
+    if (msg.includes("/listusers")) {
+      console.log(users);
+      console.log("msg includes listusers command, sending string:");
+      console.log(JSON.stringify(users));
+      socket.emit("message", JSON.stringify(users));
+    }
+    console.log("New message:");
+    console.log(msg);
+    let temp = msg.split(":")[0];
+    if (temp.length>=2) {
+      temp = temp.substring(1, temp.length-1);
+    } else {
+      console.log("No name set");
+    }
+    console.log("extracted name from message = " + temp);
+    users.push({id: socket.id, name: temp});
+    console.log("UserList:");
+    console.log(users);
+
     if (db.has("messages")) {
       console.log("DB HAS messages, concatting");
       console.log(db.get("messages"));
